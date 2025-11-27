@@ -72,6 +72,7 @@ UniswapV3Pool.Initialize.handler(async ({event, context}) => {
   // Create the pool entity
   const pool = {
     id: poolId,
+    address: event.srcAddress.toLowerCase(),
     createdAtTimestamp: event.block.timestamp,
     createdAtBlockNumber: event.block.number,
     token0_id: token0Id,

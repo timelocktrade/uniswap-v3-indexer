@@ -16,7 +16,8 @@ type Token {
 }
 
 type Pool {
-  id: ID! # pool address
+  id: ID! # chainId-poolAddress
+  address: Bytes!  
   createdAtTimestamp: Int! @index
   createdAtBlockNumber: Int! @index
   token0: Token! @index
@@ -316,8 +317,8 @@ type Collect {
 type PoolDayData {
   # timestamp rounded to current day by dividing by 86400
   id: ID!
-  # timestamp rounded to current day by dividing by 86400
-  date: Int! @index
+  # unix timestamp for start of the day
+  startTimestamp: Int! @index
   # pointer to pool
   pool: Pool! @index
   # in range liquidity at end of period
@@ -345,7 +346,7 @@ type PoolDayData {
   # number of collects during period
   collectCount: BigInt!
   # opening price of token0
-  openingPrice: BigInt!
+  open_: BigInt!
   # high price of token0
   high: BigInt!
   # low price of token0
@@ -359,7 +360,7 @@ type PoolHourData {
   # format: <pool address>-<timestamp>
   id: ID!
   # unix timestamp for start of hour
-  periodStartUnix: Int! @index
+  startTimestamp: Int! @index
   # pointer to pool
   pool: Pool! @index
   # in range liquidity at end of period
@@ -387,7 +388,7 @@ type PoolHourData {
   # number of collects during period
   collectCount: BigInt!
   # opening price of token0
-  openingPrice: BigInt!
+  open_: BigInt!
   # high price of token0
   high: BigInt!
   # low price of token0

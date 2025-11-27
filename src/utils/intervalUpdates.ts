@@ -14,7 +14,7 @@ export const updatePoolDayData = async (
     ? {...poolDayDataRO}
     : {
         id: dayPoolId,
-        date: dayStartTimestamp,
+        startTimestamp: dayStartTimestamp,
         pool_id: pool.id,
         volume0: 0n,
         volume1: 0n,
@@ -25,7 +25,7 @@ export const updatePoolDayData = async (
         mintCount: 0n,
         burnCount: 0n,
         collectCount: 0n,
-        openingPrice: pool.sqrtPriceX96,
+        open_: pool.sqrtPriceX96,
         high: pool.sqrtPriceX96,
         low: pool.sqrtPriceX96,
         close: pool.sqrtPriceX96,
@@ -64,7 +64,7 @@ export const updatePoolHourData = async (
     ? {...poolHourDataRO}
     : {
         id: hourPoolId,
-        periodStartUnix: hourStartUnix,
+        startTimestamp: hourStartUnix,
         pool_id: pool.id,
         volume0: 0n,
         volume1: 0n,
@@ -75,7 +75,7 @@ export const updatePoolHourData = async (
         mintCount: 0n,
         burnCount: 0n,
         collectCount: 0n,
-        openingPrice: pool.sqrtPriceX96,
+        open_: pool.sqrtPriceX96,
         high: pool.sqrtPriceX96,
         low: pool.sqrtPriceX96,
         close: pool.sqrtPriceX96,
